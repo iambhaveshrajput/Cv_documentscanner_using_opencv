@@ -1,6 +1,3 @@
-# === Day 3: Build a Mobile Document Scanner with OpenCV ===
-
-!pip install opencv-python imutils scikit-image
 
 import cv2
 import numpy as np
@@ -9,7 +6,7 @@ from skimage.filters import threshold_local
 import matplotlib.pyplot as plt
 from google.colab import files
 
-# Upload your image
+# Upload image
 print("Upload an image of a document (photo):")
 uploaded = files.upload()
 image_path = list(uploaded.keys())[0]
@@ -59,9 +56,7 @@ else:
 
     # Step 3: Apply perspective transform
     pts = screenCnt.reshape(4, 2) * ratio
-    # order the points: use imutils or write your own ordering
-    # For simplicity we'll use a helper function from imutils,
-    # but if not available you can implement ordering.
+    
     def order_points(pts):
         rect = np.zeros((4,2), dtype="float32")
         s = pts.sum(axis=1)
